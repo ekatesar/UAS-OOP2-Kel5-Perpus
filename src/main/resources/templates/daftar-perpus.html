@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>Daftar Buku Perpustakaan</title>
+
+	<script src="/js/angular.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap-theme.css"/>
+	<script src="/coba-app.js"></script>
+</head>
+<body ng-app="CobaApp">
+	<div class="jumbotron">
+		<div class="container" align="center">
+			<h1>Daftar Buku Perpustakaan</h1>
+		</div>
+	</div>
+
+	<div ng-controller="ApiController">
+		<div class="container">
+		<button class="btn btn-danger"
+				ng-click="keluar()">
+				Keluar
+			</button>
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>JUDUL BUKU</th>
+						<th>PENULIS</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="prps in daftarPerpus">
+						<td>{{prps.id}}</td>
+						<td>{{prps.judul_buku}}</td>
+						<td>{{prps.penulis}}</td>
+						<td>
+							<button class="btn btn-info"
+							ng-click="ubah(prps)">
+							Ubah
+							</button>
+							<button class="btn btn-warning"
+							ng-click="hapus(prps)">
+							Hapus
+							</button>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<td>
+							<a class="btn btn-primary"
+							href="/form">
+							Tambah
+							</a>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
